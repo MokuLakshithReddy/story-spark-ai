@@ -26,7 +26,6 @@ const makeKeyboardEvent = (
 
 describe("useKeyboardShortcuts", () => {
   let addEventListenerSpy: ReturnType<typeof vi.spyOn>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let removeEventListenerSpy: ReturnType<typeof vi.spyOn>;
   let onOpenHelp: ReturnType<typeof vi.fn>;
   let onCloseHelp: ReturnType<typeof vi.fn>;
@@ -46,7 +45,6 @@ describe("useKeyboardShortcuts", () => {
     });
 
     // Capture the real removeEventListener BEFORE spying to avoid infinite recursion.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const realRemove = document.removeEventListener.bind(document) as any;
 
     addEventListenerSpy = vi.spyOn(document, "addEventListener");
